@@ -1,16 +1,4 @@
 [[language]]
-name = 'toml'
-formatter = { command = "taplo", args = ["fmt", "-"] }
-auto-format = true
-
-[[language]]
-name = "markdown"
-soft-wrap.enable = true
-
-[language-server.efm]
-command = "efm-langserver"
-
-[[language]]
 name = "python"
 language-servers = ["basedpyright", "ruff"]
 formatter = { command = "ruff", args = ["format", "--line-length", "88", "-"] }
@@ -277,6 +265,7 @@ name = "markdown"
 formatter = { command = 'deno', args = ["fmt", "-", "--ext", "md"] }
 # formatter = { command = "dprint", args = ["fmt", "--stdin", "md"] }
 auto-format = true
+soft-wrap.enable = true
 
 [[language]]
 name = "json"
@@ -365,3 +354,6 @@ auto-format = true
 name = "yaml"
 # formatter = { command = "dprint", args = ["fmt", "--stdin", "yaml"] }
 # auto-format = true
+
+[language-server.efm]
+command = "efm-langserver"
