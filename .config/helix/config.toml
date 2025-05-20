@@ -1,0 +1,115 @@
+theme = "monokai_pro_spectrum"
+# theme = "flexoki_dark"
+
+[editor]
+line-number = "relative"
+cursorline = true
+scrolloff = 9
+rulers = [80, 120]
+bufferline = "multiple"
+auto-format = true
+auto-save = true
+color-modes = true
+completion-trigger-len = 0
+# Minimum severity to show a diagnostic after the end of a line:
+end-of-line-diagnostics = "info"
+
+[editor.statusline]
+left = ["mode", "spinner", "read-only-indicator"]
+center = ["file-name", "file-modification-indicator", "version-control"]
+right = [
+  "diagnostics",
+  "selections",
+  "primary-selection-length",
+  "register",
+  "total-line-numbers",
+  "position",
+  "position-percentage",
+  "file-encoding",
+  "file-type",
+  "file-line-ending",
+]
+
+[editor.cursor-shape]
+normal = "block"
+insert = "bar"
+select = "underline"
+
+[editor.whitespace.render]
+space = "none"
+tab = "all"
+nbsp = "all"
+nnbsp = "all"
+newline = "all"
+
+[editor.indent-guides]
+render = true
+character = "┆" # Some characters that work well: "▏", "┆", "┊", "⸽"
+skip-levels = 0
+
+[editor.lsp]
+display-inlay-hints = true
+display-messages = true
+auto-signature-help = false
+
+[editor.inline-diagnostics]
+# Minimum severity to show a diagnostic on the primary cursor's line.
+# Note that `cursor-line` diagnostics are hidden in insert mode.
+cursor-line = "info"
+# Minimum severity to show a diagnostic on other lines:
+# Enabling this makes it so that insert mode doesn't hide inline diagnostics
+# other-lines = "error"
+
+[keys.normal]
+C-s = ":w"
+C-q = ":bclose"
+# So that the extensions respects the direction of the selection head/anchor
+x = "extend_line"
+C-end = "goto_file_end"
+home = "goto_first_nonwhitespace"
+A-home = "goto_line_start"
+C-home = "goto_file_start"
+C-space = "signature_help"
+C-left = ["move_prev_word_start", "collapse_selection"]
+C-right = ["move_next_word_start", "collapse_selection"]
+# a = ["append_mode", "collapse_selection"]
+# i = ["insert_mode", "collapse_selection"]
+S-left = "extend_char_left"
+S-right = "extend_char_right"
+S-up = "extend_visual_line_up"
+S-down = "extend_visual_line_down"
+
+[keys.normal.g]
+e = "goto_file_end"
+
+[keys.normal.space]
+"=" = ":format"
+
+[keys.select]
+";" = ["collapse_selection", "normal_mode"]
+# So that the extensions respects the direction of the selection head/anchor
+x = "extend_line"
+C-left = "extend_prev_word_start"
+C-right = "extend_next_word_start"
+
+[keys.insert]
+C-s = ":w"
+C-z = "undo"
+C-A-z = "redo"
+C-end = "goto_file_end"
+home = "goto_first_nonwhitespace"
+A-home = "goto_line_start"
+C-home = "goto_file_start"
+C-space = "signature_help"
+C-left = ["move_prev_word_start", "collapse_selection"]
+C-right = ["move_next_word_start", "collapse_selection"]
+# C-e = "normal_mode" # Can use `C-[` since that is the `esc` keycode
+# j = { k = "normal_mode" } # Maps `jk` to exit insert mode
+C-A-p = "paste_clipboard_before"
+C-p = "paste_before"
+
+# [keys.insert."C-p"]
+# # P = "paste_clipboard_before"
+# C-P = "paste_clipboard_before"
+# # p = "paste_before"
+# C-p = "paste_before"
