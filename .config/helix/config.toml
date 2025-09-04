@@ -4,15 +4,56 @@ theme = "monokai_pro_spectrum"
 [editor]
 line-number = "relative"
 cursorline = true
+cursorcolumn = false
 scrolloff = 9
 rulers = [80, 120]
 bufferline = "multiple"
-auto-format = true
-auto-save = true
-color-modes = true
+mouse = true
+scroll-lines = 3
+middle-click-paste = true
+default-yank-register = "\""
+continue-comments = true
+auto-completion = true
+path-completion = true
 completion-trigger-len = 0
+preview-completion-insert = false
+completion-replace = false
+auto-format = true
+default-line-ending = "native"
+insert-final-newline = true
+trim-final-newlines = true
+trim-trailing-whitespace = true
+jump-label-alphabet = "abcdefghijklmnopqrstuvwxyz1234567890"
+color-modes = true
 # Minimum severity to show a diagnostic after the end of a line:
-end-of-line-diagnostics = "info"
+end-of-line-diagnostics = "hint"
+editor-config = true
+
+[editor.smart-tab]
+enable = false
+supersede-menu = true
+
+[editor.auto-save]
+focus-lost = true
+after-delay.enable = true
+after-delay.timeout = 5000
+
+[editor.cursor-shape]
+normal = "block"
+insert = "bar"
+select = "underline"
+
+[editor.whitespace.render]
+space = "none"
+tab = "all"
+nbsp = "all"
+nnbsp = "all"
+newline = "all"
+
+[editor.indent-guides]
+render = true
+character = "┆" # Some characters that work well: "▏", "┆", "┊", "⸽"
+skip-levels = 0
 
 [editor.statusline]
 # separator = "§" # 00A7: section
@@ -72,35 +113,43 @@ mode.select = "SELECT"
 diagnostics = ["warning", "error"]
 workspace-diagnostics = ["warning", "error"]
 
-[editor.cursor-shape]
-normal = "block"
-insert = "bar"
-select = "underline"
+[editor.search]
+smart-case = true
+wrap-around = true
 
-[editor.whitespace.render]
-space = "none"
-tab = "all"
-nbsp = "all"
-nnbsp = "all"
-newline = "all"
-
-[editor.indent-guides]
-render = true
-character = "┆" # Some characters that work well: "▏", "┆", "┊", "⸽"
-skip-levels = 0
+[editor.file-picker]
+hidden = false
+follow-symlinks = true
+deduplicate-links = true
+parents = true
+ignore = true
+git-ignore = true
+git-global = true
+git-exclude = true
 
 [editor.lsp]
-display-inlay-hints = true
+enable = true
 display-messages = true
+display-progress-messages = true
+display-color-swatches = true
+display-signature-help-docs = true
 auto-signature-help = false
+display-inlay-hints = true
+# inlay-hints-length-limit = ?
+snippets = true
+goto-reference-include-declaration = true
 
 [editor.inline-diagnostics]
-# Minimum severity to show a diagnostic on the primary cursor's line.
-# Note that `cursor-line` diagnostics are hidden in insert mode.
-cursor-line = "info"
-# Minimum severity to show a diagnostic on other lines:
+# The minimum severity that a diagnostic must have to be shown inline on
+# the line that contains the primary cursor. Set to disable to not show any
+# diagnostics inline. This option does not have any effect when in insert-mode
+# and will only take effect 350ms after moving the cursor to a different line.
+cursor-line = "warning"
+# The minimum severity that a diagnostic must have to be shown inline on a
+# line that does not contain the cursor-line. Set to disable to not show any
+# diagnostics inline.
 # Enabling this makes it so that insert mode doesn't hide inline diagnostics
-# other-lines = "error"
+other-lines = "disable"
 
 [keys.normal]
 C-v = "paste_before"
@@ -141,19 +190,20 @@ C-right = "extend_next_word_start"
 C-s = ":w"
 C-z = "undo"
 C-A-z = "redo"
-C-v = "paste_before"
+C-v = "paste_clipboard_before"
 C-S-v = "paste_clipboard_before"
+C-p = "paste_before"
+C-A-p = "paste_clipboard_before"
 C-end = "goto_file_end"
 home = "goto_first_nonwhitespace"
 A-home = "goto_line_start"
 C-home = "goto_file_start"
 C-space = "signature_help"
+C-c = "toggle_comments"
 C-left = ["move_prev_word_start", "collapse_selection"]
 C-right = ["move_next_word_start", "collapse_selection"]
 # C-e = "normal_mode" # Can use `C-[` since that is the `esc` keycode
 # j = { k = "normal_mode" } # Maps `jk` to exit insert mode
-C-A-p = "paste_clipboard_before"
-C-p = "paste_before"
 
 # [keys.insert."C-p"]
 # # P = "paste_clipboard_before"
