@@ -15,20 +15,62 @@ completion-trigger-len = 0
 end-of-line-diagnostics = "info"
 
 [editor.statusline]
-left = ["mode", "spinner", "read-only-indicator"]
-center = ["file-name", "file-modification-indicator", "version-control"]
-right = [
-  "diagnostics",
+# separator = "§" # 00A7: section
+# separator = "‡" # 2021: double dagger
+# separator = "•" # 2022: bullet
+# separator = "□" # 25A1: square
+# separator = "…" # 2026: ellipsis
+# separator = "␣" # 2423: space symbol
+# separator = "∞" # 221E: infinity
+# separator = "×" # 00D7: multiplication sign
+# separator = "≈" # 2248: almost equal to
+# separator = "≡" # 2261: equiv, Congruent, equivalent to
+separator = "∎" # 220E: End of proof
+# separator = "○" # 25CB: circle
+left = [
+  "mode",
+  "spinner",
+  "separator",
   "selections",
   "primary-selection-length",
   "register",
+  "separator",
   "total-line-numbers",
   "position",
   "position-percentage",
-  "file-encoding",
+]
+center = [
+  "file-modification-indicator",
+  "spacer",
+  "version-control",
+  "spacer",
+  "separator",
+  "read-only-indicator",
+  "separator",
+  "file-name",
+  "separator",
+  "read-only-indicator",
+  "separator",
+  "spacer",
+  "version-control",
+  "spacer",
+  "file-modification-indicator",
+]
+right = [
+  "diagnostics",
+  "workspace-diagnostics",
+  "separator",
   "file-type",
+  "file-indent-style",
+  "separator",
+  "file-encoding",
   "file-line-ending",
 ]
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+diagnostics = ["warning", "error"]
+workspace-diagnostics = ["warning", "error"]
 
 [editor.cursor-shape]
 normal = "block"
@@ -61,10 +103,13 @@ cursor-line = "info"
 # other-lines = "error"
 
 [keys.normal]
+C-v = "paste_before"
+C-S-v = "paste_clipboard_before"
 C-s = ":w"
 C-q = ":bclose"
 # So that the extensions respects the direction of the selection head/anchor
 x = "extend_line"
+V = ["goto_first_nonwhitespace", "extend_to_line_end"]
 C-end = "goto_file_end"
 home = "goto_first_nonwhitespace"
 A-home = "goto_line_start"
@@ -96,6 +141,8 @@ C-right = "extend_next_word_start"
 C-s = ":w"
 C-z = "undo"
 C-A-z = "redo"
+C-v = "paste_before"
+C-S-v = "paste_clipboard_before"
 C-end = "goto_file_end"
 home = "goto_first_nonwhitespace"
 A-home = "goto_line_start"
