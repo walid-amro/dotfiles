@@ -1,0 +1,141 @@
+alias ls='\
+	\ls \
+	--color=auto \
+	--classify=auto \
+	--hyperlink=auto \
+	--group-directories-first \
+'
+
+alias la='\
+	\ls \
+	--almost-all \
+	--color=auto \
+	--classify=auto \
+	--hyperlink=auto \
+	--group-directories-first \
+'
+
+alias ll='\
+	\ls \
+	-l \
+	--all \
+	--human-readable \
+	--kibibytes \
+	--color=auto \
+	--classify=auto \
+	--hyperlink=auto \
+	--time-style=long-iso \
+	--group-directories-first \
+'
+
+alias eza='\
+	\eza \
+	--color=auto \
+	--icons=auto \
+	--classify \
+	--hyperlink \
+	--group-directories-first \
+'
+
+alias ls='eza'
+
+alias la='\
+	\eza \
+	--all \
+	--color=auto \
+	--icons=auto \
+	--classify \
+	--hyperlink \
+	--group-directories-first \
+'
+
+alias ll='\
+	\eza \
+	--long \
+	--header \
+	--binary \
+	--all --all \
+	--color=auto \
+	--color-scale \
+	--icons=auto \
+	--time-style long-iso \
+	--time modified \
+	--git \
+	--git-repos \
+	--hyperlink \
+	--octal-permissions \
+	--classify \
+	--smart-group \
+	--group-directories-first \
+'
+
+alias bat='\
+	\bat \
+	--theme TwoDark \
+	--tabs 4 \
+'
+
+alias cat='bat'
+
+alias tv='tidy-viewer'
+
+alias ccls='\
+	cd && \
+	clear && \
+	ls && \
+'
+
+alias ccll='\
+	cd && \
+	clear && \
+	ll && \
+'
+
+alias ..1='\cd ../'
+alias ..2='\cd ../../'
+alias ..3='\cd ../../../'
+alias ..4='\cd ../../../../'
+alias ..='..1'
+alias ...='..2'
+
+alias sudo="\sudo "
+alias mkdir='\mkdir -pv'
+alias cg='cd `git rev-parse --show-toplevel`'
+
+alias vim="nvim"
+alias view="nvim -R"
+
+alias grep='\grep --color=auto'
+alias egrep='\egrep --color=auto'
+alias fgrep='\fgrep --color=auto'
+
+alias path='\echo -e ${PATH//:/\\n}'
+alias df='\df --human-readable --print-type'
+alias du='\du --human-readable --total'
+alias free="\free --human --total"
+
+alias date='\date +"\
+Now:%t%t%l:%M:%S %p -- %A (%U/53), %e %B, %+4Y%n\
+ISO 8601:%t%FT%T%z%t%n\
+Unix Epoch:%t%s\
+"'
+alias now='date'
+
+# Safety Nets
+alias rm='\rm --interactive=always --preserve-root'
+alias mv='\mv --interactive'
+alias cp='\cp --interactive'
+alias ln='\ln --interactive'
+alias wget='\wget --continue'
+
+mkcdir() {
+	mkdir -p $1
+	cd $1
+}
+alias mkdircd="mkcdir"
+
+# alias count-pdf-pages='pdfinfo {} | grep -oP '\''(?<=Pages:          )[ A-Za-z0-9]*'\'''
+
+count-pdf-pages () {
+	pdfinfo "$1" | \grep -oP '(?<=Pages:          )[ A-Za-z0-9]*'
+}
