@@ -1,0 +1,5 @@
+[user]
+	name = Walid Amro
+	email = walidamr.work@gmail.com
+[alias]
+	ignore = "!gi() { IFS=\", \"; curl -sLw '\\n' \"https://www.toptal.com/developers/gitignore/api/$*\" ;}; gi"
