@@ -1,0 +1,380 @@
+[[language]]
+name = 'toml'
+formatter = { command = "taplo", args = ["fmt", "-"] }
+auto-format = true
+
+[[language]]
+name = "markdown"
+soft-wrap.enable = true
+
+[language-server.efm]
+command = "efm-langserver"
+
+[[language]]
+name = "python"
+language-servers = ["basedpyright", "ruff"]
+formatter = { command = "ruff", args = ["format", "-"] }
+auto-format = true
+
+[language-server.basedpyright.config]
+# Info: for users migrating from pyright or pylance
+# with the exception of python.pythonPath and python.venvPath, settings prefixed
+# with python.* are not supported in basedpyright. use basedpyright.* instead.
+
+# Disables all language services. This includes hover text, type completion,
+# signature completion, find definition, find references, etc. This option is
+# useful if you want to use pyright only as a type checker but want to run another
+# Python language server for language service features.
+# Value: [boolean]
+basedpyright.disableLanguageServices = false
+
+# Disables the “Organize Imports” command. This is useful if you are using
+# another extension that provides similar functionality and you don’t want the two
+# extensions to fight each other.
+# Value: [boolean]
+basedpyright.disableOrganizeImports = true
+
+# Determines whether pyright offers auto-import completions.
+# Note: this setting is only for import suggestion completions, which are
+#   displayed as you type. it does not affect import suggestion code actions,
+#   which are tied to the reportUndefinedVariable diagnostic rule. to disable
+#   those, you must disable the diagnostic rule itself.
+# Value: [boolean]
+basedpyright.analysis.autoImportCompletions = true
+
+
+# Determines whether pyright automatically adds common search paths like "src" if
+# there are no execution environments defined in the config file.
+# Value: [boolean]
+# basedpyright.analysis.autoSearchPaths = ?
+
+# Determines whether pyright analyzes (and reports errors for) all files in
+# the workspace, as indicated by the config file. If this option is set to
+# "openFilesOnly", pyright analyzes only open files. Defaults to "openFilesOnly"
+# Value: ["openFilesOnly", "workspace"]
+basedpyright.analysis.diagnosticMode = "workspace"
+
+# Level of logging for Output panel. The default value for this option is
+# "Information".
+# Value: ["Error", "Warning", "Information", or "Trace"]
+# basedpyright.analysis.logLevel = "Information"
+
+# Path to Python interpreter. if you're using vscode, this setting is being
+# deprecated by the VS Code Python extension in favor of a setting that is
+# stored in the Python extension’s internal configuration store. Pyright
+# supports both mechanisms but prefers the new one if both settings are present.
+# Value: [path]
+# python.pythonPath = ?
+
+# Path to folder with subdirectories that contain virtual environments. The
+# python.pythonPath setting is recommended over this mechanism for most users.
+# For more details, refer to the import resolution documentation.
+# Value: [path]
+# python.venvPath = ?
+
+# [[ based settings ]]
+# the following settings are exclusive to basedpyright
+
+# Whether to show inlay hints on assignments to variables. Defaults to true:
+# Value: [boolean]
+basedpyright.analysis.inlayHints.variableTypes = true
+
+# Whether to show inlay hints on function arguments. Defaults to true:
+# Value: [boolean]
+basedpyright.analysis.inlayHints.callArgumentNames = true
+
+# Whether to show inlay hints on function return types. Defaults to true:
+# Value: [boolean]
+basedpyright.analysis.inlayHints.functionReturnTypes = true
+
+# Whether to show inlay hints on inferred generic types. Defaults to false:
+# Value: [boolean]
+basedpyright.analysis.inlayHints.genericTypes = true
+
+
+# Whether to rely on imports from the typing_extensions module when targeting
+# older versions of python that do not include certain typing features such as
+# the @override decorator. Defaults to false. more info
+# Value: [boolean]
+basedpyright.analysis.useTypingExtensions = false
+
+# Timeout (in seconds) for file enumeration operations. When basedpyright scans
+# your workspace files, it can take a long time in some workspaces. This setting
+# controls when to show a "slow enumeration" warning. Default is 10 seconds.
+# Value: [integer]
+# basedpyright.analysis.fileEnumerationTimeout = 10
+
+# [[ discouraged settings ]]
+
+# these options can also be configured using a config file. it's recommended to
+# use either a pyproject.toml or pyrightconfig.json file instead of the language
+# server to configure type checking for the following reasons:
+#   - the config should be the same for everybody working on your project. you
+#     should commit the config file so that other contributors don't have to
+#     manually configure their language server to match yours.
+#   - it ensures that the basedpyright language server behaves the same as the
+#     basedpyright CLI, which is useful if you have your CI configured to type
+#     check your code (you should!)
+# however these settings are still suppored to maintain compatibility with
+# pyright.
+
+
+# DON'T USE HERE. This is defined further below as a separate proper TOML Table
+# for better readability
+# 
+# Allows a user to override the severity levels for individual diagnostic rules.
+# "reportXXX" rules in the type check diagnostics settings in configuration
+# are supported. Use the rule name as a key and one of "error," "warning,"
+# "information," "true," "false," or "none" as value.
+# Value: [map]
+# basedpyright.analysis.diagnosticSeverityOverrides = {} # DON'T USE HERE
+
+# Paths of directories or files that should not be included. This can be
+# overridden in the configuration file.
+# Value: [array of paths]
+# basedpyright.analysis.exclude = ?
+
+# Paths to add to the default execution environment extra paths if there are no
+# execution environments defined in the config file.
+# Value: [array of paths]
+# basedpyright.analysis.extraPaths = ?
+
+# Paths of directories or files whose diagnostic output (errors and warnings)
+# should be suppressed. This can be overridden in the configuration file.
+# Value: [array of paths]
+# basedpyright.analysis.ignore = ?
+
+# Paths of directories or files that should be included. This can be overridden
+# in the configuration file.
+# Value: [array of paths]
+# basedpyright.analysis.include = ?
+
+# Path to directory containing custom type stub files.
+# Value: [path]
+# basedpyright.analysis.stubPath = "./typings"
+
+# Determines the default type-checking level used by pyright. This can be
+# overridden in the configuration file. (Note: This setting used to be called
+# "basedpyright.typeCheckingMode". The old name is deprecated but is still
+# currently honored.). The last two options are specific to basedpyright. The
+# default value is "recommended". The default value for pyright is "standard".
+# Value: ["off", "basic", "standard", "strict", "recommended", "all"]
+basedpyright.analysis.typeCheckingMode = "recommended"
+
+# Paths to look for typeshed modules. Pyright currently honors only the first
+# path in the array.
+# Value: [array of paths]
+# basedpyright.analysis.typeshedPaths = ?
+
+# Determines whether pyright reads, parses and analyzes library code to extract
+# type information in the absence of type stub files. Type information will
+# typically be incomplete. We recommend using type stubs where possible. The
+# default value for this option is true.
+# Value: [boolean]
+# basedpyright.analysis.useLibraryCodeForTypes = true
+
+# [[ discouraged settings :: basedpyright exclusive settings ]]
+
+# as mentioned above, it's recommended to configure these settings using a
+# config file instead.
+
+# Path to a baseline file that contains a list of diagnostics that should be
+# ignored. defaults to ./.basedpyright/baseline.json. more info
+# Value: [path]
+# basedpyright.analysis.baselineFile = ?
+
+[language-server.basedpyright.config.basedpyright.analysis.diagnosticSeverityOverrides]
+# This is one of the discouraged settings discussed above. Please refer to it.
+
+# Generate or suppress diagnostics for input or return parameters for functions or
+# methods that have an unknown type.
+# Value: [boolean or string, optional]
+reportUnknownParameterType = "none"
+
+# Generate or suppress diagnostics for call arguments for functions or methods
+# that have an unknown type.
+# Value: [boolean or string, optional]
+reportUnknownArgumentType = "none"
+
+# Generate or suppress diagnostics for input or return parameters for lambdas that
+# have an unknown type.
+# Value: [boolean or string, optional]
+reportUnknownLambdaType = "none"
+
+# Generate or suppress diagnostics for variables that have an unknown type.
+# Value: [boolean or string, optional]
+reportUnknownVariableType = "none"
+
+# Generate or suppress diagnostics for class or instance variables that have an
+# unknown type.
+# Value: [boolean or string, optional]
+reportUnknownMemberType = "none"
+
+[[language]]
+name = "c"
+file-types = ["c", "h"]
+formatter = { command = 'clang-format' }
+auto-format = true
+
+[[language]]
+name = "cpp"
+file-types = ["cpp", "cc", "cxx", "hpp", "hcc", "hxx"]
+# Default file types from Helix 25.01
+# file-types = [
+#   "cc",
+#   "hh",
+#   "c++",
+#   "cpp",
+#   "hpp",
+#   "h",
+#   "ipp",
+#   "tpp",
+#   "cxx",
+#   "hxx",
+#   "ixx",
+#   "txx",
+#   "ino",
+#   "C",
+#   "H",
+#   "cu",
+#   "cuh",
+#   "cppm",
+#   "h++",
+#   "ii",
+#   "inl",
+#   { glob = ".hpp.in" },
+#   { glob = ".h.in" },
+# ]
+formatter = { command = 'clang-format' }
+auto-format = true
+
+[[language]]
+name = "sql"
+formatter = { command = "sqlformat", args = [
+  "--reindent",
+  "--indent_width",
+  "2",
+  "--keywords",
+  "upper",
+  "--identifiers",
+  "lower",
+  "-",
+] }
+auto-format = true
+
+[[language]]
+name = "toml"
+formatter = { command = "taplo", args = ["format", "-"] }
+auto-format = true
+
+[[language]]
+name = "typst"
+formatter.command = "typststyle"
+auto-format = true
+
+[[language]]
+name = "markdown"
+formatter = { command = 'deno', args = ["fmt", "-", "--ext", "md"] }
+# formatter = { command = "dprint", args = ["fmt", "--stdin", "md"] }
+auto-format = true
+
+[[language]]
+name = "json"
+# formatter = { command = 'deno', args = ["fmt", "-", "--ext", "json"] }
+formatter = { command = 'biome', args = [
+  "format",
+  "--stdin-file-path",
+  "buffer.json",
+] }
+auto-format = true
+
+[[language]]
+name = "jsonc"
+# formatter = { command = 'deno', args = ["fmt", "-", "--ext", "jsonc"] }
+formatter = { command = 'biome', args = [
+  "format",
+  "--stdin-file-path",
+  "buffer.jsonc",
+] }
+auto-format = true
+
+[[language]]
+name = "html"
+formatter = { command = 'deno', args = ["fmt", "-", "--ext", "html"] }
+auto-format = true
+
+[[language]]
+name = "css"
+# formatter = { command = "deno", args = ["fmt", "-", "--ext", "css"] }
+formatter = { command = 'biome', args = [
+  "format",
+  "--stdin-file-path",
+  "buffer.css",
+] }
+auto-format = true
+
+[[language]]
+name = "javascript"
+# formatter = { command = 'deno', args = ["fmt", "-", "--ext", "js"] }
+formatter = { command = 'biome', args = [
+  "format",
+  "--stdin-file-path",
+  "buffer.js",
+] }
+auto-format = true
+language-servers = ["deno-lsp"]
+
+[[language]]
+name = "typescript"
+# formatter = { command = 'deno', args = ["fmt", "-", "--ext", "ts"] }
+formatter = { command = 'biome', args = [
+  "format",
+  "--stdin-file-path",
+  "buffer.ts",
+] }
+auto-format = true
+language-servers = ["deno-lsp"]
+
+[[language]]
+name = "jsx"
+# formatter = { command = 'deno', args = ["fmt", "-", "--ext", "jsx"] }
+formatter = { command = 'biome', args = [
+  "format",
+  "--stdin-file-path",
+  "buffer.jsx",
+] }
+auto-format = true
+language-servers = ["deno-lsp"]
+
+[[language]]
+name = "tsx"
+# formatter = { command = 'deno', args = ["fmt", "-", "--ext", "tsx"] }
+formatter = { command = 'biome', args = [
+  "format",
+  "--stdin-file-path",
+  "buffer.tsx",
+] }
+auto-format = true
+language-servers = ["deno-lsp"]
+
+[[language]]
+name = "graphql"
+formatter = { command = 'biome', args = [
+  "format",
+  "--stdin-file-path buffer.graphql",
+] }
+auto-format = true
+
+[[language]]
+name = "yaml"
+# formatter = { command = "dprint", args = ["fmt", "--stdin", "yaml"] }
+# auto-format = true
+
+[language-server.deno-lsp]
+command = "deno"
+args = ["lsp"]
+config.deno.enable = true
+
+[[language]]
+name = "textproto"
+file-types = ["txtpb", "textpb", "textproto", "pbtxt", "pbtext", "prototext"]
