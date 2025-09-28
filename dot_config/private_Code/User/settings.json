@@ -1,0 +1,33 @@
+{
+    "window.titleBarStyle": "custom",
+    "chat.commandCenter.enabled": false,
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": "'liga', 'calt', 'ss03', 'ss05', 'ss06', 'ss07', 'ss09', 'cv18', 'cv28', 'cv29', 'cv30', 'zero'",
+    "files.autoSave": "afterDelay",
+    "editor.formatOnSave": true,
+    "notebook.formatOnSave.enabled": true,
+    "editor.inlayHints.enabled": "offUnlessPressed",
+    "rust-analyzer.inlayHints.genericParameterHints.type.enable": true,
+    "rust-analyzer.inlayHints.rangeExclusiveHints.enable": true,
+    "workbench.colorTheme": "Monokai Pro (Filter Spectrum)",
+    "workbench.iconTheme": "Monokai Pro (Filter Spectrum) Icons",
+    "editor.minimap.enabled": false,
+    "markdownlint.config": {
+        "MD041": false
+    },
+    "[tsv]": {
+        "editor.inlayHints.maximumLength": 0
+    },
+    "rainbow_csv.enable_context_menu_head": true,
+    "rainbow_csv.enable_context_menu_tail": true,
+    "notebook.formatOnCellExecution": true,
+    "search.showLineNumbers": true,
+    "notebook.lineNumbers": "on",
+    "notebook.codeActionsOnSave": {
+        "notebook.source.organizeImports": "explicit"
+    },
+    "notebook.output.textLineLimit": 75,
+    "notebook.output.scrolling": true,
+    "python.analysis.typeCheckingMode": "standard",
+    "explorer.autoReveal": false // Only for Fira Code
+}
