@@ -172,6 +172,7 @@ S-left = "extend_char_left"
 S-right = "extend_char_right"
 S-up = "extend_visual_line_up"
 S-down = "extend_visual_line_down"
+"C-p" = ':lsp-workspace-command tinymist.pinMain "%sh{realpath %{buffer_name}}"'
 
 [keys.normal.g]
 e = "goto_file_end"
