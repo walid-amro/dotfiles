@@ -1,0 +1,17 @@
+#! /bin/sh
+if type qpdf >/dev/null 2>/dev/null; then
+  pdfpages1 () {
+    qpdf --show-npages "$1"
+  }
+elif type pdfinfo >/dev/null 2>/dev/null; then
+  pdfpages1 () {
+    pdfinfo -- "$1" | sed -n '/^Pages:/ s/.*[^0-9]//p'
+  }
+else
+  echo 1>&2 "None of the supported tools is available: pdfinfo, qpdf"
+fi
+for x; do
+  # printf '%8d %s\n' $(pdfpages1 "$x") "$x"
+  printf '%d\n' $(pdfpages1 "$x")
+done
+
