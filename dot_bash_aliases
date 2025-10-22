@@ -31,7 +31,7 @@ alias ll='\
 alias eza='\
 	\eza \
 	--color=auto \
-	--icons=auto \
+	--icons=never \
 	--classify \
 	--hyperlink \
 	--group-directories-first \
@@ -43,7 +43,7 @@ alias la='\
 	\eza \
 	--all \
 	--color=auto \
-	--icons=auto \
+	--icons=never \
 	--classify \
 	--hyperlink \
 	--group-directories-first \
@@ -57,7 +57,7 @@ alias ll='\
 	--all --all \
 	--color=auto \
 	--color-scale \
-	--icons=auto \
+	--icons=never \
 	--time-style long-iso \
 	--time modified \
 	--git \
@@ -139,3 +139,10 @@ alias mkdircd="mkcdir"
 count-pdf-pages () {
 	pdfinfo "$1" | \grep -oP '(?<=Pages:          )[ A-Za-z0-9]*'
 }
+
+alias ,gs='\git status'
+alias ,ga='\git add'
+alias ,gc='\git commit'
+alias ,gp='\git pull'
+alias ,gl='\git log'
+alias ,gb='\git branch'
