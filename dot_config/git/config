@@ -1,5 +1,17 @@
-[user]
-	name = Walid Amro
-	email = walidamr.work@gmail.com
 [alias]
 	ignore = "!gi() { IFS=\", \"; curl -sLw '\\n' \"https://www.toptal.com/developers/gitignore/api/$*\" ;}; gi"
+
+[core]
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true  # use n and N to move between diff sections
+    dark = true      # or light = true, or omit for auto-detection
+	side-by-side = true
+	line-numbers = true
+
+[merge]
+    conflictStyle = zdiff3
