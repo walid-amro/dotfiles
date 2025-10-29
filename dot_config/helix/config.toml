@@ -154,8 +154,8 @@ other-lines = "disable"
 [keys.normal]
 C-v = "paste_before"
 C-S-v = "paste_clipboard_before"
-C-s = ":w"
-C-q = ":bclose"
+C-s = ":write"
+C-q = ":buffer-close"
 # So that the extensions respects the direction of the selection head/anchor
 x = "extend_line"
 V = ["goto_first_nonwhitespace", "extend_to_line_end"]
@@ -188,7 +188,7 @@ C-left = "extend_prev_word_start"
 C-right = "extend_next_word_start"
 
 [keys.insert]
-C-s = ":w"
+C-s = ":write"
 C-z = "undo"
 C-A-z = "redo"
 C-v = "paste_clipboard_before"
