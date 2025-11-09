@@ -2,6 +2,7 @@
 	ignore = "!gi() { IFS=\", \"; curl -sLw '\\n' \"https://www.toptal.com/developers/gitignore/api/$*\" ;}; gi"
 
 [core]
+    editor = hx
     pager = delta
 
 [interactive]
