@@ -13,7 +13,7 @@ command = "efm-langserver"
 [[language]]
 name = "python"
 language-servers = ["basedpyright", "ruff"]
-formatter = { command = "ruff", args = ["format", "-"] }
+formatter = { command = "ruff", args = ["format", "-", "--line-length", "88"] }
 auto-format = true
 
 [language-server.basedpyright.config]
@@ -286,7 +286,7 @@ preview.background.args = [
 
 [[language]]
 name = "markdown"
-formatter = { command = 'deno', args = ["fmt", "-", "--ext", "md"] }
+formatter = { command = 'deno', args = ["fmt", "-", "--ext", "md", "--indent-width", "4", "--line-width", "120"] }
 # formatter = { command = "dprint", args = ["fmt", "--stdin", "md"] }
 auto-format = true
 
