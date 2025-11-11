@@ -146,3 +146,5 @@ alias ,gc='\git commit'
 alias ,gp='\git pull'
 alias ,gl='\git log'
 alias ,gb='\git branch'
+
+alias ,pyva='. .venv/bin/activate'
