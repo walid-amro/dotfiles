@@ -1,4 +1,7 @@
-theme = "monokai_pro_spectrum"
+# theme = "monokai_soda"
+# theme = "monokai_pro_spectrum"
+# theme = "gruvbox"
+theme = "gruvbox_dark_hard"
 # theme = "flexoki_dark"
 
 [editor]

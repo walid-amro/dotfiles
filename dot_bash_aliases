@@ -148,3 +148,5 @@ alias ,gl='\git log'
 alias ,gb='\git branch'
 
 alias ,pyva='. .venv/bin/activate'
+alias ,uvr='\uv run'
+alias uvr=',uvr'

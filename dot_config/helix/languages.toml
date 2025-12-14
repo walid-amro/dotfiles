@@ -6,13 +6,14 @@ auto-format = true
 [[language]]
 name = "markdown"
 soft-wrap.enable = true
+language-servers = ["harper-ls"]
 
 [language-server.efm]
 command = "efm-langserver"
 
 [[language]]
 name = "python"
-language-servers = ["basedpyright", "ruff"]
+language-servers = ["basedpyright", "ruff", "harper-ls"]
 formatter = { command = "ruff", args = ["format", "-", "--line-length", "88"] }
 auto-format = true
 
@@ -139,6 +140,7 @@ basedpyright.analysis.exclude = [
   "typings/**",
   "stubs/**",
 ]
+
 # Paths to add to the default execution environment extra paths if there are no
 # execution environments defined in the config file.
 # Value: [array of paths]
@@ -291,7 +293,12 @@ preview.background.args = [
 
 [[language]]
 name = "markdown"
-formatter = { command = 'deno', args = ["fmt", "-", "--ext", "md", "--indent-width", "4", "--line-width", "120"] }
+formatter = { command = 'deno', args = [
+  "fmt -",
+  "--ext md",
+  "--indent-width 4",
+  "--line-width 120",
+] }
 # formatter = { command = "dprint", args = ["fmt", "--stdin", "md"] }
 auto-format = true
 
@@ -300,8 +307,9 @@ name = "json"
 # formatter = { command = 'deno', args = ["fmt", "-", "--ext", "json"] }
 formatter = { command = 'biome', args = [
   "format",
-  "--stdin-file-path",
-  "buffer.json",
+  "--stdin-file-path buffer.json",
+  "--indent-width 4",
+  "--line-width 120",
 ] }
 auto-format = true
 
@@ -310,14 +318,20 @@ name = "jsonc"
 # formatter = { command = 'deno', args = ["fmt", "-", "--ext", "jsonc"] }
 formatter = { command = 'biome', args = [
   "format",
-  "--stdin-file-path",
-  "buffer.jsonc",
+  "--stdin-file-path buffer.jsonc",
+  "--indent-width 4",
+  "--line-width 120",
 ] }
 auto-format = true
 
 [[language]]
 name = "html"
-formatter = { command = 'deno', args = ["fmt", "-", "--ext", "html"] }
+formatter = { command = 'deno', args = [
+  "fmt -",
+  "--ext html",
+  "--indent-width 4",
+  "--line-width 120",
+] }
 auto-format = true
 
 [[language]]
@@ -325,8 +339,9 @@ name = "css"
 # formatter = { command = "deno", args = ["fmt", "-", "--ext", "css"] }
 formatter = { command = 'biome', args = [
   "format",
-  "--stdin-file-path",
-  "buffer.css",
+  "--stdin-file-path buffer.css",
+  "--indent-width 4",
+  "--line-width 120",
 ] }
 auto-format = true
 
@@ -335,8 +350,9 @@ name = "javascript"
 # formatter = { command = 'deno', args = ["fmt", "-", "--ext", "js"] }
 formatter = { command = 'biome', args = [
   "format",
-  "--stdin-file-path",
-  "buffer.js",
+  "--stdin-file-path buffer.js",
+  "--indent-width 4",
+  "--line-width 120",
 ] }
 auto-format = true
 language-servers = ["deno-lsp"]
@@ -346,8 +362,9 @@ name = "typescript"
 # formatter = { command = 'deno', args = ["fmt", "-", "--ext", "ts"] }
 formatter = { command = 'biome', args = [
   "format",
-  "--stdin-file-path",
-  "buffer.ts",
+  "--stdin-file-path buffer.ts",
+  "--indent-width 4",
+  "--line-width 120",
 ] }
 auto-format = true
 language-servers = ["deno-lsp"]
@@ -357,8 +374,9 @@ name = "jsx"
 # formatter = { command = 'deno', args = ["fmt", "-", "--ext", "jsx"] }
 formatter = { command = 'biome', args = [
   "format",
-  "--stdin-file-path",
-  "buffer.jsx",
+  "--stdin-file-path buffer.jsx",
+  "--indent-width 4",
+  "--line-width 120",
 ] }
 auto-format = true
 language-servers = ["deno-lsp"]
@@ -368,8 +386,9 @@ name = "tsx"
 # formatter = { command = 'deno', args = ["fmt", "-", "--ext", "tsx"] }
 formatter = { command = 'biome', args = [
   "format",
-  "--stdin-file-path",
-  "buffer.tsx",
+  "--stdin-file-path buffer.tsx",
+  "--indent-width 4",
+  "--line-width 120",
 ] }
 auto-format = true
 language-servers = ["deno-lsp"]
@@ -379,6 +398,8 @@ name = "graphql"
 formatter = { command = 'biome', args = [
   "format",
   "--stdin-file-path buffer.graphql",
+  "--indent-width 4",
+  "--line-width 120",
 ] }
 auto-format = true
 
@@ -395,6 +416,10 @@ config.deno.enable = true
 [[language]]
 name = "textproto"
 file-types = ["txtpb", "textpb", "textproto", "pbtxt", "pbtext", "prototext"]
+
+[language-server.harper-ls]
+command = "harper-ls"
+args = ["--stdio"]
 
 [[language]]
 name = "sshclientconfig"
