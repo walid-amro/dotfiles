@@ -29,5 +29,9 @@
     "notebook.output.textLineLimit": 75,
     "notebook.output.scrolling": true,
     "python.analysis.typeCheckingMode": "standard",
-    "explorer.autoReveal": false // Only for Fira Code
+    "explorer.autoReveal": false,
+    "basedpyright.analysis.typeCheckingMode": "off",
+    "python.analysis.diagnosticMode": "workspace",
+    "basedpyright.analysis.diagnosticMode": "workspace",
+    "python.languageServer": "Pylance"
 }

@@ -132,8 +132,13 @@ basedpyright.analysis.useTypingExtensions = false
 # Paths of directories or files that should not be included. This can be
 # overridden in the configuration file.
 # Value: [array of paths]
-# basedpyright.analysis.exclude = ?
-
+basedpyright.analysis.exclude = [
+  "**/node_modules",
+  "**/__pycache__",
+  "**/.*",
+  "typings/**",
+  "stubs/**",
+]
 # Paths to add to the default execution environment extra paths if there are no
 # execution environments defined in the config file.
 # Value: [array of paths]
@@ -151,7 +156,7 @@ basedpyright.analysis.useTypingExtensions = false
 
 # Path to directory containing custom type stub files.
 # Value: [path]
-# basedpyright.analysis.stubPath = "./typings"
+basedpyright.analysis.stubPath = "./stubs"
 
 # Determines the default type-checking level used by pyright. This can be
 # overridden in the configuration file. (Note: This setting used to be called
@@ -390,3 +395,10 @@ config.deno.enable = true
 [[language]]
 name = "textproto"
 file-types = ["txtpb", "textpb", "textproto", "pbtxt", "pbtext", "prototext"]
+
+[[language]]
+name = "sshclientconfig"
+language-servers = ["config-lsp"]
+
+[language-server.config-lsp]
+command = "config-lsp"
