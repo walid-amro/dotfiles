@@ -32,6 +32,7 @@ color-modes = true
 # Minimum severity to show a diagnostic after the end of a line:
 end-of-line-diagnostics = "hint"
 editor-config = true
+soft-wrap.enable = true
 
 [editor.smart-tab]
 enable = false
@@ -173,6 +174,8 @@ C-home = "goto_file_start"
 C-space = "signature_help"
 C-left = ["move_prev_word_start", "collapse_selection"]
 C-right = ["move_next_word_start", "collapse_selection"]
+C-down = "page_cursor_half_down"
+C-up = "page_cursor_half_up"
 # a = ["append_mode", "collapse_selection"]
 # i = ["insert_mode", "collapse_selection"]
 S-left = "extend_char_left"
@@ -190,10 +193,20 @@ H = ":toggle-option lsp.display-inlay-hints"
 
 [keys.select]
 ";" = ["collapse_selection", "normal_mode"]
+C-s = ":write"
+"C-/" = "toggle_comments"
+# Same as <C-/> but for compatability with some terminals that are not configured properly or are unconfigurable
+C-7 = "toggle_comments"
 # So that the extensions respects the direction of the selection head/anchor
 x = "extend_line"
 C-left = "extend_prev_word_start"
 C-right = "extend_next_word_start"
+C-down = "page_cursor_half_down"
+C-up = "page_cursor_half_up"
+S-left = "extend_char_left"
+S-right = "extend_char_right"
+S-up = "extend_visual_line_up"
+S-down = "extend_visual_line_down"
 
 [keys.select.space]
 "=" = ":format"
