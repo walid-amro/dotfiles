@@ -191,6 +191,55 @@ e = "goto_file_end"
 "=" = ":format"
 H = ":toggle-option lsp.display-inlay-hints"
 
+[keys.normal.space.q.w]
+ret = ":quit"
+c = ":quit"
+a = ":quit-all"
+
+[keys.normal.space.q.w.C]
+ret = ":quit"
+"!" = ":quit!"
+w.ret = ":write-quit"
+w."!" = ":write-quit!"
+
+[keys.normal.space.q.w.A]
+ret = ":quit-all"
+"!" = ":quit-all!"
+w.ret = ":write-quit-all"
+w."!" = ":write-quit-all!"
+
+[keys.normal.space.q.b]
+ret = ":buffer-close"
+c = ":buffer-close"
+a = ":buffer-close-all"
+o = ":buffer-close-others"
+v = ":buffer-close-others --skip-visible"
+
+[keys.normal.space.q.b.C]
+ret = ":buffer-close"
+"!" = ":buffer-close!"
+w.ret = ":write-buffer-close"
+w."!" = ":write-buffer-close!"
+w.f.ret = ":write-buffer-close --no-format"
+w.f."!" = ":write-buffer-close! --no-format"
+
+[keys.normal.space.q.b.A]
+ret = ":buffer-close-all"
+"!" = ":buffer-close-all!"
+w.ret = [":write-all", ":buffer-close-all"]
+w."!" = [":write-all!", ":buffer-close-all!"]
+w.f.ret = [":write-all --no-format", ":buffer-close-all"]
+w.f."!" = [":write-all! --no-format", ":buffer-close-all!"]
+
+[keys.normal.space.q.b.O]
+ret = ":buffer-close-others"
+"!" = ":buffer-close-others!"
+
+[keys.normal.space.q.b.V]
+ret = ":buffer-close-others --skip-visible"
+"!" = ":buffer-close-others! --skip-visible"
+
+
 [keys.select]
 ";" = ["collapse_selection", "normal_mode"]
 C-s = ":write"
@@ -211,6 +260,54 @@ S-down = "extend_visual_line_down"
 [keys.select.space]
 "=" = ":format"
 H = ":toggle-option lsp.display-inlay-hints"
+
+[keys.select.space.q.w]
+ret = ":quit"
+c = ":quit"
+a = ":quit-all"
+
+[keys.select.space.q.w.C]
+ret = ":quit"
+"!" = ":quit!"
+w.ret = ":write-quit"
+w."!" = ":write-quit!"
+
+[keys.select.space.q.w.A]
+ret = ":quit-all"
+"!" = ":quit-all!"
+w.ret = ":write-quit-all"
+w."!" = ":write-quit-all!"
+
+[keys.select.space.q.b]
+ret = ":buffer-close"
+c = ":buffer-close"
+a = ":buffer-close-all"
+o = ":buffer-close-others"
+v = ":buffer-close-others --skip-visible"
+
+[keys.select.space.q.b.C]
+ret = ":buffer-close"
+"!" = ":buffer-close!"
+w.ret = ":write-buffer-close"
+w."!" = ":write-buffer-close!"
+w.f.ret = ":write-buffer-close --no-format"
+w.f."!" = ":write-buffer-close! --no-format"
+
+[keys.select.space.q.b.A]
+ret = ":buffer-close-all"
+"!" = ":buffer-close-all!"
+w.ret = [":write-all", ":buffer-close-all"]
+w."!" = [":write-all!", ":buffer-close-all!"]
+w.f.ret = [":write-all --no-format", ":buffer-close-all"]
+w.f."!" = [":write-all! --no-format", ":buffer-close-all!"]
+
+[keys.select.space.q.b.O]
+ret = ":buffer-close-others"
+"!" = ":buffer-close-others!"
+
+[keys.select.space.q.b.V]
+ret = ":buffer-close-others --skip-visible"
+"!" = ":buffer-close-others! --skip-visible"
 
 [keys.insert]
 C-s = ":write"
