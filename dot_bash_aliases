@@ -163,3 +163,5 @@ alias ,pyva='. .venv/bin/activate'
 alias ,uvr='\uv run'
 alias uvr=',uvr'
 alias ,show-uv-tools='\uv tool list --show-paths --show-version-specifiers --show-with --show-extras --show-python'
+
+alias rgu='rg --unrestricted --unrestricted'
