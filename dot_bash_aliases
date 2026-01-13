@@ -163,5 +163,8 @@ alias ,pyva='. .venv/bin/activate'
 alias ,uvr='\uv run'
 alias uvr=',uvr'
 alias ,show-uv-tools='\uv tool list --show-paths --show-version-specifiers --show-with --show-extras --show-python'
+,delta-py() {
+	delta <(cat $1 | ruff check --fix --select I,F401 - | ruff format -) <(cat $2 | ruff check --fix --select I,F401 - | ruff format -)
+}
 
 alias rgu='rg --unrestricted --unrestricted'
