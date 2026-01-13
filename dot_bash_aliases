@@ -168,4 +168,4 @@ alias ,show-uv-tools='\uv tool list --show-paths --show-version-specifiers --sho
 	delta <(cat $1 | ruff check --fix --select I,F401 - | ruff format -) <(cat $2 | ruff check --fix --select I,F401 - | ruff format -)
 }
 
-alias rgu='rg --unrestricted --unrestricted'
+alias ,rgu='rg --unrestricted --unrestricted'
