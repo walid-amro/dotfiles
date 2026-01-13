@@ -157,6 +157,7 @@ alias ,ga='\git add'
 alias ,gc='\git commit'
 alias ,gp='\git pull'
 alias ,gl='\git log'
+alias ,glg='\git log --oneline --decorate --graph --all'
 alias ,gb='\git branch'
 
 alias ,pyva='. .venv/bin/activate'
