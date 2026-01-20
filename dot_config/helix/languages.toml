@@ -3,10 +3,6 @@ name = 'toml'
 formatter = { command = "taplo", args = ["fmt", "-"] }
 auto-format = true
 
-[[language]]
-name = "markdown"
-soft-wrap.enable = true
-language-servers = ["harper-ls"]
 
 [language-server.efm]
 command = "efm-langserver"
@@ -166,7 +162,7 @@ basedpyright.analysis.stubPath = "./stubs"
 # currently honored.). The last two options are specific to basedpyright. The
 # default value is "recommended". The default value for pyright is "standard".
 # Value: ["off", "basic", "standard", "strict", "recommended", "all"]
-basedpyright.analysis.typeCheckingMode = "recommended"
+basedpyright.analysis.typeCheckingMode = "standard"
 
 # Paths to look for typeshed modules. Pyright currently honors only the first
 # path in the array.
@@ -293,14 +289,18 @@ preview.background.args = [
 
 [[language]]
 name = "markdown"
+soft-wrap.enable = true
+language-servers = ["harper-ls"]
 formatter = { command = 'deno', args = [
-  "fmt -",
-  "--ext md",
-  "--indent-width 4",
-  "--line-width 120",
+  "fmt",
+  "--ext=md",
+  "--indent-width=4",
+  "--line-width=120",
+  "-",
 ] }
-# formatter = { command = "dprint", args = ["fmt", "--stdin", "md"] }
+# formatter = { command = "dprint", args = ["fmt", "--stdin", "%{buffer_name}"] }
 auto-format = true
+indent = { tab-width = 4, unit = "    " }
 
 [[language]]
 name = "json"
