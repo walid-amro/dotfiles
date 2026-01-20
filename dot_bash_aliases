@@ -126,12 +126,12 @@ alias df='\df --human-readable --print-type'
 alias du='\du --human-readable --total'
 alias free="\free --human --total"
 
-alias date='\date +"\
+alias ,date='\date +"\
 Now:%t%t%l:%M:%S %p -- %A (%U/53), %e %B, %+4Y%n\
 ISO 8601:%t%FT%T%z%t%n\
 Unix Epoch:%t%s\
 "'
-alias now='date'
+alias now=',date'
 
 # Safety Nets
 alias rm='\rm --interactive=always --preserve-root'
