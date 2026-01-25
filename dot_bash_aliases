@@ -127,11 +127,23 @@ alias du='\du --human-readable --total'
 alias free="\free --human --total"
 
 alias ,date='\date +"\
-Now:%t%t%l:%M:%S %p -- %A (%U/53), %e %B, %+4Y%n\
-ISO 8601:%t%FT%T%z%t%n\
-Unix Epoch:%t%s\
+Time Zone:%t%t%Z
+Time:%t%t%t%l:%M:%S %p
+Date:%t%t%t%A, %e %B, %+4Y
+Datetime:%t%t%l:%M:%S %p, %A, %e %B, %+4Y
+ISO 8601:%t%t%FT%T%z%t
+Unix Epoch:%t%t%s
+============================== Extra ==============================
+Week of Year (00..53):%t%U (Sunday as First)
+Week of Year (00..53):%t%W (Monday as First)
+Day of Year (001.366):%t%j\
 "'
-alias now=',date'
+alias now='\
+echo "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Current Locale ($(timedatectl show -p Timezone | cut -d= -f2)) @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@";\
+,date;\
+echo;\
+echo "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@       UTC      @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@";\
+,date --utc'
 
 # Safety Nets
 alias rm='\rm --interactive=always --preserve-root'
