@@ -171,6 +171,7 @@ alias ,gp='\git pull'
 alias ,gl='\git log'
 alias ,glg='\git log --oneline --decorate --graph --all'
 alias ,gb='\git branch'
+alias ,gd='\git diff'
 
 alias ,pyva='. .venv/bin/activate'
 alias ,uvr='\uv run'
