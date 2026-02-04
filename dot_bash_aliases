@@ -182,3 +182,7 @@ alias ,show-uv-tools='\uv tool list --show-paths --show-version-specifiers --sho
 }
 
 alias ,rgu='rg --unrestricted --unrestricted'
+
+# region:    Maqsam-specific
+alias ,new-arc-diff='\arc diff --create --draft --nolint --nounit origin/master'
+# enfregion: Maqsam-specific
