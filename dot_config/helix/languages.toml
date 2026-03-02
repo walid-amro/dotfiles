@@ -421,6 +421,13 @@ file-types = ["txtpb", "textpb", "textproto", "pbtxt", "pbtext", "prototext"]
 command = "harper-ls"
 args = ["--stdio"]
 
+[language-server.harper-ls.config.harper-ls]
+diagnosticSeverity = "hint"
+dialect = "British"
+codeActions.ForceStable = true
+markdown.IgnoreLinkTitle = false
+linters.LongSentences = false
+
 [[language]]
 name = "sshclientconfig"
 language-servers = ["config-lsp"]
