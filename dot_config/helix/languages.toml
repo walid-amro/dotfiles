@@ -307,9 +307,9 @@ name = "json"
 # formatter = { command = 'deno', args = ["fmt", "-", "--ext", "json"] }
 formatter = { command = 'biome', args = [
   "format",
-  "--stdin-file-path buffer.json",
-  "--indent-width 4",
-  "--line-width 120",
+  "--stdin-file-path=buffer.json",
+  "--indent-width=4",
+  "--line-width=120",
 ] }
 auto-format = true
 
@@ -318,9 +318,9 @@ name = "jsonc"
 # formatter = { command = 'deno', args = ["fmt", "-", "--ext", "jsonc"] }
 formatter = { command = 'biome', args = [
   "format",
-  "--stdin-file-path buffer.jsonc",
-  "--indent-width 4",
-  "--line-width 120",
+  "--stdin-file-path=buffer.jsonc",
+  "--indent-width=4",
+  "--line-width=120",
 ] }
 auto-format = true
 
@@ -339,9 +339,9 @@ name = "css"
 # formatter = { command = "deno", args = ["fmt", "-", "--ext", "css"] }
 formatter = { command = 'biome', args = [
   "format",
-  "--stdin-file-path buffer.css",
-  "--indent-width 4",
-  "--line-width 120",
+  "--stdin-file-path=buffer.css",
+  "--indent-width=4",
+  "--line-width=120",
 ] }
 auto-format = true
 
@@ -350,9 +350,9 @@ name = "javascript"
 # formatter = { command = 'deno', args = ["fmt", "-", "--ext", "js"] }
 formatter = { command = 'biome', args = [
   "format",
-  "--stdin-file-path buffer.js",
-  "--indent-width 4",
-  "--line-width 120",
+  "--stdin-file-path=buffer.js",
+  "--indent-width=4",
+  "--line-width=120",
 ] }
 auto-format = true
 language-servers = ["deno-lsp"]
@@ -362,9 +362,9 @@ name = "typescript"
 # formatter = { command = 'deno', args = ["fmt", "-", "--ext", "ts"] }
 formatter = { command = 'biome', args = [
   "format",
-  "--stdin-file-path buffer.ts",
-  "--indent-width 4",
-  "--line-width 120",
+  "--stdin-file-path=buffer.ts",
+  "--indent-width=4",
+  "--line-width=120",
 ] }
 auto-format = true
 language-servers = ["deno-lsp"]
@@ -374,9 +374,9 @@ name = "jsx"
 # formatter = { command = 'deno', args = ["fmt", "-", "--ext", "jsx"] }
 formatter = { command = 'biome', args = [
   "format",
-  "--stdin-file-path buffer.jsx",
-  "--indent-width 4",
-  "--line-width 120",
+  "--stdin-file-path=buffer.jsx",
+  "--indent-width=4",
+  "--line-width=120",
 ] }
 auto-format = true
 language-servers = ["deno-lsp"]
@@ -386,9 +386,9 @@ name = "tsx"
 # formatter = { command = 'deno', args = ["fmt", "-", "--ext", "tsx"] }
 formatter = { command = 'biome', args = [
   "format",
-  "--stdin-file-path buffer.tsx",
-  "--indent-width 4",
-  "--line-width 120",
+  "--stdin-file-path=buffer.tsx",
+  "--indent-width=4",
+  "--line-width=120",
 ] }
 auto-format = true
 language-servers = ["deno-lsp"]
@@ -397,9 +397,9 @@ language-servers = ["deno-lsp"]
 name = "graphql"
 formatter = { command = 'biome', args = [
   "format",
-  "--stdin-file-path buffer.graphql",
-  "--indent-width 4",
-  "--line-width 120",
+  "--stdin-file-path=buffer.graphql",
+  "--indent-width=4",
+  "--line-width=120",
 ] }
 auto-format = true
 
