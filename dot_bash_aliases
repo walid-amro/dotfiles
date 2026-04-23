@@ -171,7 +171,17 @@ alias ,ga='\git add'
 alias ,gc='\git commit'
 alias ,gp='\git pull'
 alias ,gl='\git log'
-alias ,glg='\git log --oneline --decorate --graph --all'
+alias ,glg='\
+	git log \
+  --graph \
+  --topo-order \
+  --decorate \
+  --all \
+  --boundary \
+  --date=short \
+  --abbrev-commit \
+  --pretty=format:'\''%Cgreen%ad %Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue[%aN]%Creset'\'' \
+'
 alias ,gb='\git branch'
 alias ,gd='\git diff'
 
