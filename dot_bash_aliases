@@ -178,7 +178,7 @@ alias ,glg='\
   --decorate \
   --all \
   --boundary \
-  --date=short \
+  --date=iso \
   --abbrev-commit \
   --pretty=format:'\''%Cgreen%ad %Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue[%aN]%Creset'\'' \
 '

@@ -9,7 +9,7 @@ command = "efm-langserver"
 
 [[language]]
 name = "python"
-language-servers = ["basedpyright", "ruff", "harper-ls"]
+language-servers = ["basedpyright", "ruff"]
 formatter = { command = "ruff", args = ["format", "-", "--line-length", "88"] }
 auto-format = true
 
@@ -405,6 +405,11 @@ auto-format = true
 
 [[language]]
 name = "yaml"
+language-servers = [
+  "pulumi-lsp",
+  "yaml-language-server",
+  "ansible-language-server",
+]
 # formatter = { command = "dprint", args = ["fmt", "--stdin", "yaml"] }
 # auto-format = true
 
@@ -434,3 +439,6 @@ language-servers = ["config-lsp"]
 
 [language-server.config-lsp]
 command = "config-lsp"
+
+[language-server.pulumi-lsp]
+command = "pulumi-lsp"
