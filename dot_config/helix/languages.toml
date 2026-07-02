@@ -296,6 +296,7 @@ formatter = { command = 'deno', args = [
   "--ext=md",
   "--indent-width=4",
   "--line-width=120",
+  "--prose-wrap=preserve",
   "-",
 ] }
 # formatter = { command = "dprint", args = ["fmt", "--stdin", "%{buffer_name}"] }
