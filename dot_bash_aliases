@@ -166,6 +166,10 @@ count-pdf-pages () {
 	pdfinfo "$1" | \grep -oP '(?<=Pages:          )[ A-Za-z0-9]*'
 }
 
+alias p='\pulumi'
+
+# region:    `,` namespaced
+
 alias ,gs='\git status'
 alias ,ga='\git add'
 alias ,gc='\git commit'
@@ -184,6 +188,7 @@ alias ,glg='\
 '
 alias ,gb='\git branch'
 alias ,gd='\git diff'
+alias ,stash-sandwhiched-git-pull-with-rebase='\git stash; \git pull --rebase; \git stash pop'
 
 alias ,pyva='. .venv/bin/activate'
 alias ,uvr='\uv run'
@@ -194,6 +199,11 @@ alias ,show-uv-tools='\uv tool list --show-paths --show-version-specifiers --sho
 }
 
 alias ,rgu='rg --unrestricted --unrestricted'
+
+alias ,pry='\pulumi refresh --yes'
+alias ,purf='\pulumi up --refresh=false'
+
+# endregion: `,` namespaced
 
 # region:    Maqsam-specific
 alias ,new-arc-diff='\arc diff --create --draft --nolint --nounit origin/master'
