@@ -211,4 +211,5 @@ alias ,purf='\pulumi up --refresh=false'
 
 # region:    Maqsam-specific
 alias ,new-arc-diff='\arc diff --create --draft --nolint --nounit origin/master'
+alias ,new-tmux-builds-session='\tmux new -s builds -n main'
 # enfregion: Maqsam-specific
